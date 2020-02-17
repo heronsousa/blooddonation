@@ -1,0 +1,58 @@
+html, body {
+    margin: 0;  /* Retira margem padrão do navegador */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 100% da tela  */
+    font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    margin-top: auto;
+    border-top: 1px rgb(168, 165, 165) solid;
+    padding: 16px;
+}
+
+header, main, footer {
+    text-align: center;
+}
+
+section.donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Dividi em 3 frações */
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
+
+header, .form, main {
+    margin: 0 auto 70px;
+    width: 90%;     /* Limite dos elementos da página */
+    max-width: 500px;
+}
+
+header h1, main h2 {
+    margin-bottom: 40px;
+}
+
+header button {
+    padding: 8px  16px;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+form input, form button {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    padding: 8px  16px;
+    border-radius: 3px;
+    border: 1px red solid;
+    background-color: white;
+}
