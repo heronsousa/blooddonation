@@ -49,7 +49,7 @@ main h2 span {
 
 section.donors {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Dividi em 3 frações */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Dividi em 4 frações */
 }
 
 header, .form, main {
