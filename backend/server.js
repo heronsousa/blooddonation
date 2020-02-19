@@ -26,13 +26,30 @@ nunjucks.configure('../frontend', {
 
 
 server.get('/', (req, res) => {
-    res.render('index.html', {donors});
+    db.query('SELECT * FROM donors', (err, result) => {
+        if(err) return res.send('Erro no banco de dados.');
+        
+        const donors = result.rows;
+        res.render('index.html', { donors });
+    })
+
 });
 
 server.post('/', (req, res) => {
     const name = req.body.name;
     const blood = req.body.blood;
     const email = req.body.email;
+
+    if(!name || !blood || !email){
+        return res.send("Todos os campos são obrigatórios.")
+    }
+
+    const query = `INSERT INTO donors ("name", "email", "blood")
+                   VALUES ($1, $2, $3)`
+    
+    db.query(query, [name, email, blood], (err) => {
+        if(err) return res.send('Erro no banco de dados.')
+    });
 
     return res.redirect('/')
 });
