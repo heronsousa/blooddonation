@@ -8,34 +8,22 @@ server.use(express.static('../frontend/public'))
 
 server.use(express.urlencoded({ extended: true }))
 
+
+const Pool = require('pg').Pool;
+const db = new Pool({
+    user: 'heron',
+    password: '2524',
+    host: 'localhost',
+    port: 5432,
+    database: 'doe'
+});
+
 // Template engine
 nunjucks.configure('../frontend', {
     express: server,
     noCache: true
 })
 
-const donors = [
-    {
-        name: 'Heron Rodrigues',
-        blood: 'O+Zika'
-    },
-    {
-        name: 'Heron Rodrigues',
-        blood: 'O+Zika'
-    },
-    {
-        name: 'Heron Rodrigues',
-        blood: 'O+Zika'
-    },
-    {
-        name: 'Heron Rodrigues',
-        blood: 'O+Zika'
-    },
-    {
-        name: 'Heron Rodrigues',
-        blood: 'O+Zika'
-    }
-]
 
 server.get('/', (req, res) => {
     res.render('index.html', {donors});
@@ -45,11 +33,6 @@ server.post('/', (req, res) => {
     const name = req.body.name;
     const blood = req.body.blood;
     const email = req.body.email;
-
-    donors.push({
-        name,
-        blood
-    })
 
     return res.redirect('/')
 });
