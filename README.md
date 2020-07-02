@@ -1,7 +1,8 @@
-
-<p align='center'>
-    <h1>Maratona Dev</h1>
-</p>
+<h1 align='center'>
+    <img src="./frontend/public/img/logo.png" align='center'/>
+    <br>
+    DOE SANGUE
+</h1>
 
 ## 💻 Projeto
 
